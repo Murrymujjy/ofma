@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Leadership — OFMA{% endblock %}
+{% block content %}
+
+<section class="hero" style="padding:60px 0 40px;">
+  <div class="container">
+    <div class="breadcrumb"><a href="{{ url_for('home') }}">Home</a> / <a href="{{ url_for('about') }}">About</a> / Leadership</div>
+    <span class="eyebrow">Who Leads OFMA</span>
+    <h1>Leadership</h1>
+    <p class="lede">The people steering OFMA's work in the Okeho community, and the volunteers who make every summit possible.</p>
+  </div>
+</section>
+{% include "partials/_curve_divider.html" %}
+
+<section>
+  <div class="container">
+    <div class="grid grid-2">
+      <div class="card">
+        <div class="card-media" style="aspect-ratio:1/1; max-width:180px;">Photo</div>
+        <span class="badge-role">Convener</span>
+        <h3>Faaidah Olabisi Bello</h3>
+        <p>Leads OFMA's vision and partnerships, from the Annual Summit to the Maths Clinic, and represents the organisation to sponsors, speakers, and partner schools.</p>
+        <p style="font-size:0.9rem;"><a href="tel:08137973600">0813 797 3600</a></p>
+      </div>
+      <div class="card">
+        <div class="card-media" style="aspect-ratio:1/1; max-width:180px;">Photo</div>
+        <span class="badge-role">Secretary</span>
+        <h3>Iradat Bisola Oladejo</h3>
+        <p>Coordinates OFMA's programming and correspondence, keeping every summit, clinic, and outreach running smoothly behind the scenes.</p>
+        <p style="font-size:0.9rem;"><a href="tel:07048191555">0704 819 1555</a></p>
+      </div>
+    </div>
+    <p style="margin-top:36px; text-align:center; color:var(--ink-soft); font-size:0.9rem;">
+      [Placeholder — add additional executive members, committee heads, or volunteer coordinators here as your team grows.]
+    </p>
+  </div>
+</section>
+
+{% endblock %}

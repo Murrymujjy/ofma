@@ -1,0 +1,31 @@
+{% extends "admin/base.html" %}
+{% block title %}Blog Posts — OFMA Admin{% endblock %}
+{% block content %}
+
+<div class="admin-topbar">
+  <h1 class="mt-0" style="font-size:1.6rem;">Blog Posts</h1>
+  <a href="{{ url_for('admin.blog_new') }}" class="btn btn-primary">+ New Post</a>
+</div>
+
+<table>
+  <thead><tr><th>Title</th><th>Published</th><th>Author</th><th></th></tr></thead>
+  <tbody>
+    {% for p in posts %}
+    <tr>
+      <td>{{ p['title'] }}</td>
+      <td>{{ p['published_at'] }}</td>
+      <td>{{ p['author'] }}</td>
+      <td>
+        <a href="{{ url_for('admin.blog_edit', post_id=p['id']) }}" style="font-size:0.85rem;">Edit</a>
+        &nbsp;·&nbsp;
+        <a href="{{ url_for('blog_detail', slug=p['slug']) }}" target="_blank" style="font-size:0.85rem;">View</a>
+        &nbsp;·&nbsp;
+        <a href="{{ url_for('admin.blog_delete', post_id=p['id']) }}" style="font-size:0.85rem; color:var(--maroon);" onclick="return confirm('Delete this post?');">Delete</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% if not posts %}<p style="color:var(--ink-soft);">No posts yet.</p>{% endif %}
+
+{% endblock %}

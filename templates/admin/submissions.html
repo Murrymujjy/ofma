@@ -1,0 +1,28 @@
+{% extends "admin/base.html" %}
+{% block title %}Submissions — OFMA Admin{% endblock %}
+{% block content %}
+
+<h1 style="font-size:1.6rem;">Form Submissions</h1>
+
+<table>
+  <thead><tr><th>Type</th><th>Name</th><th>Email</th><th>Phone</th><th>Message</th><th>Date</th><th></th></tr></thead>
+  <tbody>
+    {% for s in items %}
+    <tr style="{{ 'opacity:0.5;' if s['handled'] }}">
+      <td><span class="tag" style="margin:0;">{{ s['form_type'] }}</span></td>
+      <td>{{ s['name'] }}{% if s['meta'] %}<br><small>{{ s['meta'] }}</small>{% endif %}</td>
+      <td>{{ s['email'] }}</td>
+      <td>{{ s['phone'] }}</td>
+      <td style="max-width:260px;">{{ s['message'] }}</td>
+      <td>{{ s['created_at'][:10] }}</td>
+      <td>
+        {% if not s['handled'] %}
+        <a href="{{ url_for('admin.mark_handled', sub_id=s['id']) }}" style="font-size:0.8rem;">Mark handled</a>
+        {% else %}✓{% endif %}
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

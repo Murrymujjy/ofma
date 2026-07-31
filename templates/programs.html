@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}Programs — OFMA{% endblock %}
+{% block content %}
+
+<section class="hero" style="padding:60px 0 40px;">
+  <div class="container">
+    <div class="breadcrumb"><a href="{{ url_for('home') }}">Home</a> / Programs</div>
+    <span class="eyebrow">What We Run</span>
+    <h1>Programs</h1>
+    <p class="lede">From our flagship Annual Summit to the OFMA Maths Clinic, every programme exists to root young people and their families in faith, confidence, and purpose.</p>
+  </div>
+</section>
+{% include "partials/_curve_divider.html" %}
+
+<section>
+  <div class="container">
+    <div class="grid grid-3">
+      <a href="{{ url_for('summit') }}" class="card" style="text-decoration:none;">
+        <div class="card-media">Summit Photo</div>
+        <span class="tag">Flagship · Annual</span>
+        <h3>OFMA Annual Summit</h3>
+        <p>A multi-day gathering of scholars, professionals, students, and families for sessions on faith, leadership, parenting, and purposeful living.</p>
+      </a>
+      <a href="{{ url_for('maths_clinic') }}" class="card" style="text-decoration:none;">
+        <div class="card-media">Clinic Photo</div>
+        <span class="tag">Academic Support</span>
+        <h3>OFMA Maths Clinic</h3>
+        <p>Free, structured mathematics support for students in the Okeho community, now in its second edition.</p>
+      </a>
+      <a href="{{ url_for('past_summits') }}" class="card" style="text-decoration:none;">
+        <div class="card-media">Archive Photo</div>
+        <span class="tag">Archive</span>
+        <h3>Past Summits</h3>
+        <p>Look back at OFMA 1.0 through 6.0 — the themes, speakers, and moments that built where we are today.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

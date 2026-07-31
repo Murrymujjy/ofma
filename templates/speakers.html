@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Speakers — OFMA{% endblock %}
+{% block content %}
+
+<section class="hero" style="padding:60px 0 40px;">
+  <div class="container">
+    <div class="breadcrumb"><a href="{{ url_for('home') }}">Home</a> / Speakers</div>
+    <span class="eyebrow">Annual Summit {{ summit.edition }}</span>
+    <h1>Speakers</h1>
+    <p class="lede">Scholars and professionals joining us to explore faith, family, and purpose over two days.</p>
+  </div>
+</section>
+{% include "partials/_curve_divider.html" %}
+
+<section>
+  <div class="container">
+    <div class="grid grid-3">
+      {% for s in speakers %}
+      <a href="{{ url_for('speaker_detail', slug=s['slug']) }}" class="card" style="text-decoration:none;">
+        <div class="card-media">Photo</div>
+        <span class="badge-role">{{ s['role'] }}</span>
+        <h3>{{ s['name'] }}</h3>
+        {% if s['topic'] %}<p style="font-size:0.9rem; font-style:italic;">{{ s['topic'] }}</p>{% endif %}
+        {% if s['status'] == 'tbc' %}<span class="pill">To Be Confirmed</span>{% endif %}
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% endblock %}

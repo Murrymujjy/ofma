@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Testimonials — OFMA{% endblock %}
+{% block content %}
+
+<section class="hero" style="padding:60px 0 40px;">
+  <div class="container">
+    <div class="breadcrumb"><a href="{{ url_for('home') }}">Home</a> / Testimonials</div>
+    <span class="eyebrow">In Their Words</span>
+    <h1>Testimonials</h1>
+    <p class="lede">What parents, students, and volunteers say about their time with OFMA.</p>
+  </div>
+</section>
+{% include "partials/_curve_divider.html" %}
+
+<section>
+  <div class="container">
+    <div class="grid grid-3">
+      {% for t in testimonials %}
+      <div class="card">
+        <p style="font-style:italic; font-size:1.02rem;">"{{ t['quote'] }}"</p>
+        <h3 style="font-size:1rem; margin-bottom:2px;">{{ t['name'] }}</h3>
+        <p style="font-size:0.85rem; margin:0;">{{ t['role'] }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% endblock %}

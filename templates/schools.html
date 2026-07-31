@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block title %}Partner Schools — OFMA{% endblock %}
+{% block content %}
+
+<section class="hero" style="padding:60px 0 40px;">
+  <div class="container">
+    <div class="breadcrumb"><a href="{{ url_for('home') }}">Home</a> / Partner Schools</div>
+    <span class="eyebrow">For School Administrators</span>
+    <h1>Bring Your School to OFMA {{ summit.edition }}</h1>
+    <p class="lede">OFMA is excited to invite your school to participate in our Annual Summit — a debate and quiz competition, and sessions on identity, leadership, and Islamic values designed especially for young people navigating school, faith, and ambition all at once.</p>
+  </div>
+</section>
+{% include "partials/_curve_divider.html" %}
+
+<section>
+  <div class="container two-col">
+    <div>
+      <span class="eyebrow">What's Involved</span>
+      <h2>Three students, no cost to attend</h2>
+      <p>To ensure a focused learning environment, we request the participation of three female students from your school. Additional students are welcome to attend at no cost.</p>
+      <p>We kindly request your assistance in identifying these students and ensuring their parents or guardians are informed and provide consent for their participation.</p>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0;">At a glance</h3>
+      <p style="margin-bottom:6px;"><strong>Dates:</strong> {{ summit.dates }}</p>
+      <p style="margin-bottom:6px;"><strong>Venue:</strong> {{ summit.venue }}</p>
+      <p style="margin-bottom:0;"><strong>Students requested:</strong> 3 female students (+ more welcome, free)</p>
+    </div>
+  </div>
+</section>
+
+<section class="section-alt">
+  <div class="container">
+    <div class="form-card" style="max-width:640px; margin:0 auto;">
+      <h3 style="margin-top:0;">Register Your School's Interest</h3>
+      <form method="post" class="form-grid">
+        <div class="form-row-2">
+          <div>
+            <label for="name">Contact Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div>
+            <label for="school_name">School Name</label>
+            <input type="text" id="school_name" name="school_name" required>
+          </div>
+        </div>
+        <div class="form-row-2">
+          <div>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div>
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone">
+          </div>
+        </div>
+        <div>
+          <label for="message">Number of students / any questions</label>
+          <textarea id="message" name="message"></textarea>
+        </div>
+        <button type="submit" class="btn btn-secondary" style="justify-content:center;">Register Interest</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

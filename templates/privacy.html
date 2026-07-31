@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Privacy Policy — OFMA{% endblock %}
+{% block content %}
+
+<section class="hero" style="padding:60px 0 40px;">
+  <div class="container">
+    <div class="breadcrumb"><a href="{{ url_for('home') }}">Home</a> / Privacy Policy</div>
+    <span class="eyebrow">Legal</span>
+    <h1>Privacy Policy</h1>
+    <p class="lede">Last updated: {{ current_year }}</p>
+  </div>
+</section>
+{% include "partials/_curve_divider.html" %}
+
+<section>
+  <div class="container" style="max-width:760px;">
+    <p style="background:var(--paper-warm); padding:16px 20px; border-radius:var(--radius); font-size:0.88rem;">
+      <strong>Note:</strong> This is placeholder policy text. Please have it reviewed by a qualified professional
+      before publishing live, especially once online donations are enabled — Nigerian data protection
+      (NDPR) and payment-handling obligations will apply.
+    </p>
+
+    <h3>Information We Collect</h3>
+    <p>We collect information you provide directly — such as your name, email, and phone number — when you donate, register your school, volunteer, or contact us through this website.</p>
+
+    <h3>How We Use It</h3>
+    <p>We use your information to process donations, respond to inquiries, coordinate volunteer and school participation, and share updates about OFMA programmes you've engaged with.</p>
+
+    <h3>Payment Information</h3>
+    <p>Donations are processed securely through Paystack. OFMA does not directly store your card details.</p>
+
+    <h3>Contact</h3>
+    <p>Questions about this policy can be sent to <a href="mailto:bellofaidat606@gmail.com">bellofaidat606@gmail.com</a>.</p>
+  </div>
+</section>
+
+{% endblock %}

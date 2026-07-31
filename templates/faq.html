@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}FAQ — OFMA{% endblock %}
+{% block content %}
+
+<section class="hero" style="padding:60px 0 40px;">
+  <div class="container">
+    <div class="breadcrumb"><a href="{{ url_for('home') }}">Home</a> / FAQ</div>
+    <span class="eyebrow">Common Questions</span>
+    <h1>Frequently Asked Questions</h1>
+  </div>
+</section>
+{% include "partials/_curve_divider.html" %}
+
+<section>
+  <div class="container" style="max-width:760px;">
+    <div class="card" style="margin-bottom:18px;">
+      <h3>Is OFMA Annual Summit {{ summit.edition }} free to attend?</h3>
+      <p>Yes — the summit is free for attendees, including student participants from partner schools.</p>
+    </div>
+    <div class="card" style="margin-bottom:18px;">
+      <h3>How is my donation used?</h3>
+      <p>Donations go directly toward the costs of running the summit — venue, feeding, speaker hospitality, publicity, security, and student competition awards. A full budget breakdown is available on our <a href="{{ url_for('sponsor') }}">Sponsor Us</a> page.</p>
+    </div>
+    <div class="card" style="margin-bottom:18px;">
+      <h3>Can my school participate even if we're not contacted directly?</h3>
+      <p>Yes — reach out via our <a href="{{ url_for('schools') }}">Partner Schools</a> page and we'll get you registered.</p>
+    </div>
+    <div class="card" style="margin-bottom:18px;">
+      <h3>How can I volunteer?</h3>
+      <p>Fill out the form on our <a href="{{ url_for('volunteer') }}">Volunteer</a> page, and our team will follow up with available roles.</p>
+    </div>
+    <div class="card">
+      <h3>I have a question not answered here.</h3>
+      <p>Reach us directly via the <a href="{{ url_for('contact') }}">Contact page</a> — we respond as quickly as we can.</p>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}Volunteer — OFMA{% endblock %}
+{% block content %}
+
+<section class="hero" style="padding:60px 0 40px;">
+  <div class="container two-col">
+    <div>
+      <div class="breadcrumb"><a href="{{ url_for('home') }}">Home</a> / Volunteer</div>
+      <span class="eyebrow">Give Your Time</span>
+      <h1>Volunteer with OFMA</h1>
+      <p class="lede">From ushering at the summit to tutoring at the Maths Clinic, OFMA runs on the generosity of volunteers who show up for their community.</p>
+      <div class="grid grid-2" style="margin-top:26px;">
+        <div class="card"><h3 style="font-size:1rem;">Event Support</h3><p style="font-size:0.9rem;">Registration, ushering, logistics during the Annual Summit.</p></div>
+        <div class="card"><h3 style="font-size:1rem;">Tutoring</h3><p style="font-size:0.9rem;">Support students at the OFMA Maths Clinic.</p></div>
+      </div>
+    </div>
+
+    <div class="form-card">
+      <h3 style="margin-top:0;">Sign Up to Volunteer</h3>
+      <form method="post" class="form-grid">
+        <div>
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-row-2">
+          <div>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div>
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone">
+          </div>
+        </div>
+        <div>
+          <label for="message">How would you like to help?</label>
+          <textarea id="message" name="message"></textarea>
+        </div>
+        <button type="submit" class="btn btn-secondary" style="justify-content:center;">Submit</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

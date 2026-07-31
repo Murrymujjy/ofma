@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Gallery — OFMA{% endblock %}
+{% block content %}
+
+<section class="hero" style="padding:60px 0 40px;">
+  <div class="container">
+    <div class="breadcrumb"><a href="{{ url_for('home') }}">Home</a> / Gallery</div>
+    <span class="eyebrow">Moments</span>
+    <h1>Photo Gallery</h1>
+    <p class="lede">Highlights from past summits, the Maths Clinic, and community outreach.</p>
+  </div>
+</section>
+{% include "partials/_curve_divider.html" %}
+
+<section>
+  <div class="container">
+    <div class="grid grid-4">
+      {% for img in images %}
+      <div class="card" style="padding:0; overflow:hidden;">
+        <div class="card-media" style="margin:0; aspect-ratio:1/1; border-radius:0;">
+          {% if img['image_path'] %}
+            <img src="{{ img['image_path'] }}" alt="{{ img['caption'] }}">
+          {% else %}
+            Photo — {{ img['caption'] }}
+          {% endif %}
+        </div>
+        <p style="padding:12px 14px; margin:0; font-size:0.85rem;">{{ img['caption'] }}</p>
+      </div>
+      {% endfor %}
+    </div>
+    {% if not images %}
+    <p class="text-center" style="color:var(--ink-soft);">No photos yet — add some via the admin panel.</p>
+    {% endif %}
+  </div>
+</section>
+
+{% endblock %}

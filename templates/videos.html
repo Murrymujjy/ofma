@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Videos — OFMA{% endblock %}
+{% block content %}
+
+<section class="hero" style="padding:60px 0 40px;">
+  <div class="container">
+    <div class="breadcrumb"><a href="{{ url_for('home') }}">Home</a> / Videos</div>
+    <span class="eyebrow">Watch</span>
+    <h1>Videos</h1>
+    <p class="lede">Summit highlights, testimonial clips, and programme moments.</p>
+  </div>
+</section>
+{% include "partials/_curve_divider.html" %}
+
+<section>
+  <div class="container">
+    <div class="grid grid-3">
+      <div class="card">
+        <div class="card-media" style="aspect-ratio:16/9;">Video Placeholder<br>(embed YouTube link)</div>
+        <h3 style="font-size:1rem;">OFMA Summit 6.0 Highlights</h3>
+      </div>
+      <div class="card">
+        <div class="card-media" style="aspect-ratio:16/9;">Video Placeholder<br>(embed YouTube link)</div>
+        <h3 style="font-size:1rem;">Maths Clinic 2.0 Recap</h3>
+      </div>
+      <div class="card">
+        <div class="card-media" style="aspect-ratio:16/9;">Video Placeholder<br>(embed YouTube link)</div>
+        <h3 style="font-size:1rem;">Parent Testimonial</h3>
+      </div>
+    </div>
+    <p style="margin-top:24px; font-size:0.85rem; color:var(--ink-soft); text-align:center;">
+      To add a real video, replace the placeholder card with an <code>&lt;iframe&gt;</code> embed of your YouTube/Vimeo link.
+    </p>
+  </div>
+</section>
+
+{% endblock %}

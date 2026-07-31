@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}OFMA Maths Clinic{% endblock %}
+{% block content %}
+
+<section class="hero" style="padding:60px 0 40px;">
+  <div class="container">
+    <div class="breadcrumb"><a href="{{ url_for('home') }}">Home</a> / <a href="{{ url_for('programs') }}">Programs</a> / Maths Clinic</div>
+    <span class="eyebrow">Academic Support</span>
+    <h1>OFMA Maths Clinic</h1>
+    <p class="lede">Free, structured mathematics support for students in the Okeho community — because purposeful living includes academic confidence.</p>
+  </div>
+</section>
+{% include "partials/_curve_divider.html" %}
+
+<section>
+  <div class="container two-col">
+    <div>
+      <span class="eyebrow">Two Editions and Counting</span>
+      <h2>Maths Clinic 1.0 (2024) &amp; 2.0 (2025)</h2>
+      <p>Recognising that academic confidence is part of a student's overall sense of purpose, OFMA launched the Maths Clinic to give students in Okeho free, structured support in mathematics — one of the subjects students most often struggle with, and one that shapes access to further education and careers.</p>
+      <p>The clinic has run successfully for two consecutive years, and continues to grow alongside OFMA's other programmes.</p>
+    </div>
+    <div class="card-media" style="aspect-ratio:4/3;">Photo — Maths Clinic Session</div>
+  </div>
+</section>
+
+<section class="section-alt text-center">
+  <div class="container">
+    <h2>Want to support the next edition?</h2>
+    <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-top:20px;">
+      <a href="{{ url_for('donate') }}" class="btn btn-primary">Donate</a>
+      <a href="{{ url_for('volunteer') }}" class="btn btn-outline">Volunteer as a Tutor</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

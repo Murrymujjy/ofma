@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Blog &amp; News — OFMA{% endblock %}
+{% block content %}
+
+<section class="hero" style="padding:60px 0 40px;">
+  <div class="container">
+    <div class="breadcrumb"><a href="{{ url_for('home') }}">Home</a> / Blog</div>
+    <span class="eyebrow">Updates</span>
+    <h1>Blog &amp; News</h1>
+    <p class="lede">Announcements, recaps, and reflections from OFMA's work in Okeho.</p>
+  </div>
+</section>
+{% include "partials/_curve_divider.html" %}
+
+<section>
+  <div class="container">
+    <div class="grid grid-3">
+      {% for p in posts %}
+      <a href="{{ url_for('blog_detail', slug=p['slug']) }}" class="card" style="text-decoration:none;">
+        <div class="card-media">Article Image</div>
+        <span class="tag">{{ p['published_at'] }}</span>
+        <h3>{{ p['title'] }}</h3>
+        <p>{{ p['excerpt'] }}</p>
+      </a>
+      {% endfor %}
+    </div>
+    {% if not posts %}
+    <p class="text-center" style="color:var(--ink-soft);">No posts yet — publish your first update from the admin panel.</p>
+    {% endif %}
+  </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,146 @@
+{% extends "base.html" %}
+{% block title %}OFMA — Okeho Female Muslims' Ambassadors{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+  <div class="hero-circle"></div>
+  <div class="container hero-grid">
+    <div>
+      <span class="eyebrow">Est. 2019 · Okeho, Oyo State</span>
+      <h1>Faith and ambition can grow side by side.</h1>
+      <p class="lede">
+        OFMA empowers Muslim women and teens through faith, education, and purposeful community
+        service — and this December, we gather again for Annual Summit {{ summit.edition }}.
+      </p>
+      <div style="display:flex; gap:14px; margin-top:28px; flex-wrap:wrap;">
+        <a href="{{ url_for('summit') }}" class="btn btn-primary">See Summit {{ summit.edition }}</a>
+        <a href="{{ url_for('donate') }}" class="btn btn-outline">Support the Work</a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <svg class="swirl-bg" viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <rect width="400" height="500" fill="#1F8A4C"/>
+        <circle cx="330" cy="440" r="130" fill="#A3283C"/>
+        <circle cx="80" cy="90" r="70" fill="none" stroke="#FBF8F2" stroke-width="10" opacity="0.5"/>
+        <path d="M0,300 C120,260 280,340 400,290 L400,500 L0,500 Z" fill="#14522E" opacity="0.6"/>
+      </svg>
+    </div>
+  </div>
+</section>
+{% include "partials/_curve_divider.html" %}
+
+<section class="section-alt section-tight">
+  <div class="container stat-strip">
+    <div class="stat"><span class="num">7</span><span class="label">Annual Summits since 2019</span></div>
+    <div class="stat"><span class="num">2</span><span class="label">Maths Clinic editions</span></div>
+    <div class="stat"><span class="num">300+</span><span class="label">Attendees expected this year</span></div>
+    <div class="stat"><span class="num">10+</span><span class="label">Partner schools engaged</span></div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Annual Summit {{ summit.edition }}</span>
+      <h2>{{ summit.theme }}</h2>
+      <p>{{ summit.dates }} &middot; {{ summit.venue }}</p>
+    </div>
+    <div class="grid grid-3">
+      <div class="card">
+        <span class="tag">Day 1</span>
+        <h3>Al-Istiqamah</h3>
+        <p>Steadfastness on Allah's path in uncertain times — building internal certainty (Yaqeen) that holds regardless of what the world demands.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Day 2</span>
+        <h3>The Ideal Muslim Home</h3>
+        <p>Two experts, one Islamic and one psychological, unpack boundaries, intentionality, and the hidden cost of doing too much.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Day 2</span>
+        <h3>Building a Halal Brand</h3>
+        <p>Turning small ideas into lasting wealth — practical entrepreneurship rooted in Islamic values.</p>
+      </div>
+    </div>
+    <div style="margin-top:30px;">
+      <a href="{{ url_for('summit') }}" class="btn btn-secondary">Full Summit Details →</a>
+    </div>
+  </div>
+</section>
+
+<section class="section-dark">
+  <div class="container two-col">
+    <div>
+      <span class="eyebrow">Why we exist</span>
+      <h2>Every naira invested doesn't just fund a workshop.</h2>
+      <p>It funds a parent learning how to listen again. It funds a girl discovering that her faith and her ambition can grow side by side. It funds a family's future and the nation's peace.</p>
+      <div style="display:flex; gap:14px; margin-top:20px; flex-wrap:wrap;">
+        <a href="{{ url_for('donate') }}" class="btn btn-primary">Donate</a>
+        <a href="{{ url_for('sponsor') }}" class="btn btn-outline-light">Sponsor an Organisation</a>
+      </div>
+    </div>
+    <div>
+      <div class="card" style="background:rgba(255,255,255,0.06); border-color:rgba(255,255,255,0.15);">
+        <p style="color:rgba(255,255,255,0.9); font-style:italic; font-size:1.1rem;">
+          "This is the gap OFMA was built to close." — from a letter to our partners, on why this work matters.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% if speakers %}
+<section>
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">This year's line-up</span>
+      <h2>Meet the speakers</h2>
+    </div>
+    <div class="grid grid-4">
+      {% for s in speakers %}
+      <a href="{{ url_for('speaker_detail', slug=s['slug']) }}" class="card" style="text-decoration:none;">
+        <div class="card-media">Photo</div>
+        <span class="badge-role">{{ s['role'] }}</span>
+        <h3 style="font-size:1.1rem;">{{ s['name'] }}</h3>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% if posts %}
+<section class="section-alt">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Latest</span>
+      <h2>News &amp; Updates</h2>
+    </div>
+    <div class="grid grid-3">
+      {% for p in posts %}
+      <a href="{{ url_for('blog_detail', slug=p['slug']) }}" class="card" style="text-decoration:none;">
+        <div class="card-media">Article Image</div>
+        <span class="tag">{{ p['published_at'] }}</span>
+        <h3 style="font-size:1.15rem;">{{ p['title'] }}</h3>
+        <p>{{ p['excerpt'] }}</p>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<section>
+  <div class="container text-center">
+    <h2>Ready to be part of the next family's story?</h2>
+    <p class="lede" style="margin:0 auto 26px;">Whether through giving, sponsoring, volunteering, or bringing your school on board — there's a place for you at OFMA {{ summit.edition }}.</p>
+    <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+      <a href="{{ url_for('donate') }}" class="btn btn-primary">Donate</a>
+      <a href="{{ url_for('volunteer') }}" class="btn btn-secondary">Volunteer</a>
+      <a href="{{ url_for('schools') }}" class="btn btn-outline">Partner Your School</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "admin/base.html" %}
+{% block title %}Donations — OFMA Admin{% endblock %}
+{% block content %}
+
+<h1 style="font-size:1.6rem;">Donations</h1>
+
+<table>
+  <thead><tr><th>Name</th><th>Email</th><th>Amount</th><th>Reference</th><th>Status</th><th>Date</th></tr></thead>
+  <tbody>
+    {% for d in items %}
+    <tr>
+      <td>{{ d['name'] }}</td>
+      <td>{{ d['email'] }}</td>
+      <td>&#8358;{{ "{:,}".format(d['amount'] // 100) }}</td>
+      <td><code style="font-size:0.78rem;">{{ d['reference'] }}</code></td>
+      <td>
+        {% if d['status'] == 'success' %}<span class="pill">Success</span>
+        {% elif d['status'] == 'pending' %}<span class="pill" style="background:var(--paper-warm); color:var(--ink-soft);">Pending</span>
+        {% else %}<span class="pill" style="background:#FBEAEC; color:var(--maroon-deep);">{{ d['status'] }}</span>{% endif %}
+      </td>
+      <td>{{ d['created_at'][:10] }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% if not items %}<p style="color:var(--ink-soft);">No donations recorded yet.</p>{% endif %}
+
+{% endblock %}

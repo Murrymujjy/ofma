@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}Contact — OFMA{% endblock %}
+{% block content %}
+
+<section class="hero" style="padding:60px 0 40px;">
+  <div class="container two-col">
+    <div>
+      <div class="breadcrumb"><a href="{{ url_for('home') }}">Home</a> / Contact</div>
+      <span class="eyebrow">Get In Touch</span>
+      <h1>Contact Us</h1>
+      <p class="lede">Questions about the summit, a programme, or how to get involved? We'd love to hear from you.</p>
+      <div style="margin-top:26px;">
+        <p><strong>Address</strong><br>Opp. Bayande Ayanlowo House, Ariwoola St., Isia, Okeho, Oyo State</p>
+        <p><strong>Phone</strong><br><a href="tel:08137973600">0813 797 3600</a></p>
+        <p><strong>Email</strong><br><a href="mailto:bellofaidat606@gmail.com">bellofaidat606@gmail.com</a></p>
+      </div>
+    </div>
+
+    <div class="form-card">
+      <h3 style="margin-top:0;">Send a Message</h3>
+      <form method="post" class="form-grid">
+        <div>
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-row-2">
+          <div>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div>
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone">
+          </div>
+        </div>
+        <div>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="justify-content:center;">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}{{ post['title'] }} — OFMA Blog{% endblock %}
+{% block content %}
+
+<section class="hero" style="padding:60px 0 40px;">
+  <div class="container" style="max-width:760px;">
+    <div class="breadcrumb"><a href="{{ url_for('home') }}">Home</a> / <a href="{{ url_for('blog') }}">Blog</a> / {{ post['title'] }}</div>
+    <span class="eyebrow">{{ post['published_at'] }} &middot; {{ post['author'] }}</span>
+    <h1>{{ post['title'] }}</h1>
+  </div>
+</section>
+{% include "partials/_curve_divider.html" %}
+
+<section>
+  <div class="container" style="max-width:760px;">
+    <div class="card-media" style="aspect-ratio:16/9; margin-bottom:30px;">Article Image</div>
+    <div style="font-size:1.05rem; line-height:1.75;">
+      {{ post['body'] | safe }}
+    </div>
+    <a href="{{ url_for('blog') }}" class="btn btn-outline" style="margin-top:30px;">← Back to Blog</a>
+  </div>
+</section>
+
+{% endblock %}

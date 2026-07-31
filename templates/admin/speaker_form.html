@@ -1,0 +1,40 @@
+{% extends "admin/base.html" %}
+{% block title %}Edit Speaker — OFMA Admin{% endblock %}
+{% block content %}
+
+<h1 style="font-size:1.6rem;">Edit Speaker</h1>
+
+<form method="post" class="form-grid" style="max-width:640px;">
+  <div>
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" value="{{ speaker['name'] }}" required>
+  </div>
+  <div class="form-row-2">
+    <div>
+      <label for="role">Role</label>
+      <input type="text" id="role" name="role" value="{{ speaker['role'] }}">
+    </div>
+    <div>
+      <label for="day">Session Day</label>
+      <input type="text" id="day" name="day" value="{{ speaker['day'] }}">
+    </div>
+  </div>
+  <div>
+    <label for="topic">Topic</label>
+    <input type="text" id="topic" name="topic" value="{{ speaker['topic'] or '' }}">
+  </div>
+  <div>
+    <label for="bio">Bio</label>
+    <textarea id="bio" name="bio" rows="5">{{ speaker['bio'] or '' }}</textarea>
+  </div>
+  <div>
+    <label for="status">Status</label>
+    <select id="status" name="status">
+      <option value="confirmed" {{ 'selected' if speaker['status']=='confirmed' }}>Confirmed</option>
+      <option value="tbc" {{ 'selected' if speaker['status']=='tbc' }}>To Be Confirmed</option>
+    </select>
+  </div>
+  <button type="submit" class="btn btn-primary" style="justify-content:center;">Save Changes</button>
+</form>
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "admin/base.html" %}
+{% block title %}{{ 'Edit Post' if post else 'New Post' }} — OFMA Admin{% endblock %}
+{% block content %}
+
+<h1 style="font-size:1.6rem;">{{ 'Edit Post' if post else 'New Post' }}</h1>
+
+<form method="post" class="form-grid" style="max-width:680px;">
+  <div>
+    <label for="title">Title</label>
+    <input type="text" id="title" name="title" value="{{ post['title'] if post else '' }}" required>
+  </div>
+  <div>
+    <label for="excerpt">Excerpt (shown on listing pages)</label>
+    <textarea id="excerpt" name="excerpt" rows="2">{{ post['excerpt'] if post else '' }}</textarea>
+  </div>
+  <div>
+    <label for="body">Body (HTML allowed — wrap paragraphs in &lt;p&gt; tags)</label>
+    <textarea id="body" name="body" rows="12" required>{{ post['body'] if post else '' }}</textarea>
+  </div>
+  <div class="form-row-2">
+    <div>
+      <label for="published_at">Published Date</label>
+      <input type="date" id="published_at" name="published_at" value="{{ post['published_at'] if post else '' }}">
+    </div>
+    <div>
+      <label for="author">Author</label>
+      <input type="text" id="author" name="author" value="{{ post['author'] if post else 'OFMA Team' }}">
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary" style="justify-content:center;">{{ 'Save Changes' if post else 'Publish Post' }}</button>
+</form>
+
+{% endblock %}

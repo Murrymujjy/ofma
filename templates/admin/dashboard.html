@@ -1,0 +1,32 @@
+{% extends "admin/base.html" %}
+{% block title %}Dashboard — OFMA Admin{% endblock %}
+{% block content %}
+
+<div class="admin-topbar">
+  <h1 class="mt-0" style="font-size:1.6rem;">Dashboard</h1>
+</div>
+
+<div class="grid grid-4" style="margin-bottom:34px;">
+  <div class="card"><span class="num" style="font-family:var(--font-display); font-size:2rem; color:var(--maroon);">{{ counts.submissions }}</span><p style="margin:0; font-size:0.85rem;">Total submissions</p></div>
+  <div class="card"><span class="num" style="font-family:var(--font-display); font-size:2rem; color:var(--maroon);">{{ counts.unhandled }}</span><p style="margin:0; font-size:0.85rem;">Awaiting response</p></div>
+  <div class="card"><span class="num" style="font-family:var(--font-display); font-size:2rem; color:var(--green-deep);">{{ counts.donations }}</span><p style="margin:0; font-size:0.85rem;">Successful donations</p></div>
+  <div class="card"><span class="num" style="font-family:var(--font-display); font-size:2rem; color:var(--green-deep);">{{ counts.posts }}</span><p style="margin:0; font-size:0.85rem;">Blog posts</p></div>
+</div>
+
+<h3>Recent Submissions</h3>
+<table>
+  <thead><tr><th>Type</th><th>Name</th><th>Contact</th><th>Received</th></tr></thead>
+  <tbody>
+    {% for s in recent %}
+    <tr>
+      <td><span class="tag" style="margin:0;">{{ s['form_type'] }}</span></td>
+      <td>{{ s['name'] }}</td>
+      <td>{{ s['email'] }}</td>
+      <td>{{ s['created_at'][:10] }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<p style="margin-top:16px;"><a href="{{ url_for('admin.submissions') }}">View all submissions →</a></p>
+
+{% endblock %}

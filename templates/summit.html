@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+{% block title %}OFMA Annual Summit {{ summit.edition }}{% endblock %}
+{% block content %}
+
+<section class="hero">
+  <div class="hero-circle"></div>
+  <div class="container">
+    <div class="breadcrumb"><a href="{{ url_for('home') }}">Home</a> / <a href="{{ url_for('programs') }}">Programs</a> / Annual Summit</div>
+    <span class="eyebrow">OFMA Annual Summit {{ summit.edition }}</span>
+    <h1>{{ summit.theme }}</h1>
+    <p class="lede">{{ summit.dates }} &middot; {{ summit.venue }}</p>
+    <div style="display:flex; gap:14px; margin-top:24px; flex-wrap:wrap;">
+      <a href="{{ url_for('donate') }}" class="btn btn-primary">Support This Summit</a>
+      <a href="{{ url_for('schools') }}" class="btn btn-outline">Bring Your School</a>
+    </div>
+  </div>
+</section>
+{% include "partials/_curve_divider.html" %}
+
+<section>
+  <div class="container two-col">
+    <div>
+      <span class="eyebrow">About This Year</span>
+      <h2>Uncompromised, on purpose.</h2>
+      <p>This year's theme speaks to a challenge many of us feel quietly every day — the pressure to soften our values, dilute our faith, or shrink our ambitions just to fit in. Over two days, the summit brings together scholars, professionals, students, and families for sessions on faith, leadership, parenting, and purposeful living.</p>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0;">At a glance</h3>
+      <p style="margin-bottom:6px;"><strong>Dates:</strong> {{ summit.dates }}</p>
+      <p style="margin-bottom:6px;"><strong>Venue:</strong> {{ summit.venue }}</p>
+      <p style="margin-bottom:6px;"><strong>Theme:</strong> {{ summit.theme }}</p>
+      <p style="margin-bottom:0;"><strong>Audience:</strong> Secondary school students, undergraduates, young professionals, parents &amp; community leaders</p>
+    </div>
+  </div>
+</section>
+
+<section class="section-alt">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Programme</span>
+      <h2>Two days, three major sessions</h2>
+    </div>
+
+    <div class="grid grid-2">
+      <div class="card">
+        <span class="tag">Day 1 — Saturday, 19th December 2026</span>
+        <h3>Al-Istiqamah — Steadfastness on Allah's Path in Uncertain Times</h3>
+        <p>In an era of shifting moral baselines and digital distraction, this session explores Al-Istiqamah not as passive endurance, but as an active, uncompromised commitment to Allah's commands — building the internal certainty (Yaqeen) to remain anchored in faith on campus, at work, and at home.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Day 2 — Sunday, 20th December 2026</span>
+        <h3>The Ideal Muslim Home</h3>
+        <p>Intentionality, boundaries, and the psychology of family dynamics — addressed from both an Islamic and a psychological perspective, examining role-bleeding, self-neglect, and the protection paradox in parenting.</p>
+      </div>
+    </div>
+    <div class="grid grid-2" style="margin-top:26px;">
+      <div class="card">
+        <span class="tag">Day 2 — Sunday, 20th December 2026</span>
+        <h3>Building a Halal Brand</h3>
+        <p>Turning small ideas into lasting wealth — an introduction to Nigeria's growing halal economy and how ethical entrepreneurship becomes a pathway to sustainable wealth creation.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Both Days</span>
+        <h3>Debate &amp; Quiz Competition</h3>
+        <p>Secondary school students compete for prizes, with awards for 1st, 2nd, and 3rd place across both the debate and quiz competitions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Who's Speaking</span>
+      <h2>Speakers &amp; Programme Roles</h2>
+    </div>
+
+    <h3 style="font-size:1.05rem; color:var(--green-deep); margin-bottom:16px;">Day 1 — Saturday, 19th December</h3>
+    <div class="grid grid-4" style="margin-bottom:40px;">
+      {% for s in speakers if 'Day 1' in (s['day'] or '') %}
+      <a href="{{ url_for('speaker_detail', slug=s['slug']) }}" class="card" style="text-decoration:none;">
+        <div class="card-media">Photo</div>
+        <span class="badge-role">{{ s['role'] }}</span>
+        <h3 style="font-size:1.05rem;">{{ s['name'] }}</h3>
+        {% if s['status'] == 'tbc' %}<span class="pill">To Be Confirmed</span>{% endif %}
+      </a>
+      {% endfor %}
+    </div>
+
+    <h3 style="font-size:1.05rem; color:var(--green-deep); margin-bottom:16px;">Day 2 — Sunday, 20th December</h3>
+    <div class="grid grid-4">
+      {% for s in speakers if 'Day 2' in (s['day'] or '') %}
+      <a href="{{ url_for('speaker_detail', slug=s['slug']) }}" class="card" style="text-decoration:none;">
+        <div class="card-media">Photo</div>
+        <span class="badge-role">{{ s['role'] }}</span>
+        <h3 style="font-size:1.05rem;">{{ s['name'] }}</h3>
+        {% if s['status'] == 'tbc' %}<span class="pill">To Be Confirmed</span>{% endif %}
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section-dark text-center">
+  <div class="container">
+    <h2>Be part of Summit {{ summit.edition }}</h2>
+    <p class="lede" style="margin:0 auto 24px;">Whether as a donor, a sponsor, or a partner school — there's a role for you.</p>
+    <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+      <a href="{{ url_for('donate') }}" class="btn btn-primary">Donate</a>
+      <a href="{{ url_for('sponsor') }}" class="btn btn-outline-light">Sponsor</a>
+      <a href="{{ url_for('schools') }}" class="btn btn-outline-light">Partner Your School</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

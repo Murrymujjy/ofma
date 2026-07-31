@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}Donate — OFMA{% endblock %}
+{% block content %}
+
+<section class="hero" style="padding:60px 0 40px;">
+  <div class="container two-col">
+    <div>
+      <div class="breadcrumb"><a href="{{ url_for('home') }}">Home</a> / Donate</div>
+      <span class="eyebrow">Every Gift Counts</span>
+      <h1>Donate towards OFMA {{ summit.edition }}</h1>
+      <p class="lede">There is no gift too small, and none too large. Whether you're able to give &#8358;5,000 or &#8358;500,000, your contribution goes directly into feeding a family for two days, putting a certificate in a child's hand, or keeping the lights on in a hall full of people learning to stand firm.</p>
+      <p style="font-size:0.9rem; color:var(--ink-soft);">Prefer bank transfer? Reach us at <a href="tel:08137973600">0813 797 3600</a> or <a href="mailto:bellofaidat606@gmail.com">bellofaidat606@gmail.com</a> for account details.</p>
+    </div>
+
+    <div class="form-card">
+      <h3 style="margin-top:0;">Make a Donation</h3>
+      <form action="{{ url_for('donate_init') }}" method="post" class="form-grid">
+        <div>
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div>
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div>
+          <label for="amount">Amount (&#8358;)</label>
+          <input type="number" id="amount" name="amount" min="500" step="100" placeholder="e.g. 10000" required>
+        </div>
+        <button type="submit" class="btn btn-primary" style="justify-content:center;">Continue to Payment →</button>
+        <p style="font-size:0.78rem; color:var(--ink-soft); margin:0;">Payments are securely processed via Paystack.</p>
+      </form>
+    </div>
+  </div>
+</section>
+{% include "partials/_curve_divider.html" %}
+
+<section class="section-alt">
+  <div class="container text-center">
+    <span class="eyebrow">Where It Goes</span>
+    <h2>See the full budget for this year's summit</h2>
+    <p class="lede" style="margin:0 auto 20px;">We publish our planning budget openly — every naira is accounted for, from venue costs to student prizes.</p>
+    <a href="{{ url_for('sponsor') }}" class="btn btn-outline">View Sponsorship &amp; Budget →</a>
+  </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}Complete Your Donation — OFMA{% endblock %}
+{% block content %}
+
+<section class="hero" style="padding:80px 0;">
+  <div class="container text-center" style="max-width:520px;">
+    <span class="eyebrow">Almost There</span>
+    <h1>Complete Your Donation</h1>
+    <p class="lede" style="margin:0 auto 30px;">
+      Thank you, {{ name }} — you're about to give &#8358;{{ "{:,}".format(amount_kobo // 100) }} towards OFMA {{ summit.edition }}.
+      Click below to complete payment securely via Paystack.
+    </p>
+    <button id="pay-btn" class="btn btn-primary" style="justify-content:center; width:100%; padding:16px;">
+      Pay &#8358;{{ "{:,}".format(amount_kobo // 100) }} Now
+    </button>
+    <p style="font-size:0.78rem; color:var(--ink-soft); margin-top:16px;">
+      Reference: <code>{{ reference }}</code>
+    </p>
+  </div>
+</section>
+
+{% endblock %}
+
+{% block extra_scripts %}
+<script src="https://js.paystack.co/v1/inline.js"></script>
+<script>
+  document.getElementById('pay-btn').addEventListener('click', function () {
+    var handler = PaystackPop.setup({
+      key: "{{ paystack_public_key }}",
+      email: "{{ email }}",
+      amount: {{ amount_kobo }},
+      ref: "{{ reference }}",
+      metadata: { name: "{{ name }}" },
+      callback: function (response) {
+        window.location.href = "{{ url_for('donate_verify') }}?reference=" + response.reference;
+      },
+      onClose: function () {
+        alert('Payment window closed. You can try again anytime.');
+      }
+    });
+    handler.openIframe();
+  });
+</script>
+{% endblock %}

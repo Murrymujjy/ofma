@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}{{ speaker['name'] }} — OFMA Speakers{% endblock %}
+{% block content %}
+
+<section class="hero" style="padding:60px 0 40px;">
+  <div class="container">
+    <div class="breadcrumb"><a href="{{ url_for('home') }}">Home</a> / <a href="{{ url_for('speakers') }}">Speakers</a> / {{ speaker['name'] }}</div>
+    <div class="two-col">
+      <div>
+        <span class="badge-role">{{ speaker['role'] }}</span>
+        <h1>{{ speaker['name'] }}</h1>
+        {% if speaker['status'] == 'tbc' %}<span class="pill">To Be Confirmed</span>{% endif %}
+        {% if speaker['topic'] %}<p class="lede" style="font-style:italic;">"{{ speaker['topic'] }}"</p>{% endif %}
+        <p style="font-size:0.9rem; color:var(--ink-soft);"><strong>Session:</strong> {{ speaker['day'] }}</p>
+      </div>
+      <div class="card-media" style="aspect-ratio:1/1;">Photo</div>
+    </div>
+  </div>
+</section>
+{% include "partials/_curve_divider.html" %}
+
+<section>
+  <div class="container" style="max-width:760px;">
+    <h2>About This Session</h2>
+    <p>{{ speaker['bio'] }}</p>
+    <a href="{{ url_for('summit') }}" class="btn btn-outline" style="margin-top:20px;">← Back to Summit Programme</a>
+  </div>
+</section>
+
+{% endblock %}

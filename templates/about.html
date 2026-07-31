@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block title %}About Us — OFMA{% endblock %}
+{% block content %}
+
+<section class="hero" style="padding:60px 0 40px;">
+  <div class="container">
+    <div class="breadcrumb"><a href="{{ url_for('home') }}">Home</a> / About</div>
+    <span class="eyebrow">About OFMA</span>
+    <h1>Enriching lives through the empowerment of women and teens.</h1>
+    <p class="lede">Since our inception in 2019, OFMA has committed itself to empowering women and teens while driving positive change in the Okeho community.</p>
+  </div>
+</section>
+{% include "partials/_curve_divider.html" %}
+
+<section>
+  <div class="container two-col">
+    <div>
+      <span class="eyebrow">Our Mission</span>
+      <h2>Rooted in faith. Built for purpose.</h2>
+      <p>The Okeho Female Muslims' Ambassadors (OFMA) is a non-profit, faith-based organisation dedicated to empowering young Muslim girls and women in Okeho, Oyo State — helping them root their identity in faith and sound morals, while opening their eyes to possibilities beyond what they see around them.</p>
+      <p>We work just as closely with parents — equipping them with real, practical skills for raising confident, faithful young adults, not merely obedient ones.</p>
+    </div>
+    <div class="card-media" style="aspect-ratio:4/3;">Photo — Community / Programme Moment</div>
+  </div>
+</section>
+
+<section class="section-alt">
+  <div class="container">
+    <div class="section-head text-center" style="margin:0 auto 40px;">
+      <span class="eyebrow">What We Stand For</span>
+      <h2>Our Values</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="card">
+        <h3>Faith First</h3>
+        <p>Every programme is grounded in Islamic values — not as decoration, but as the actual foundation for how we teach, mentor, and lead.</p>
+      </div>
+      <div class="card">
+        <h3>Purposeful Service</h3>
+        <p>We measure our work by the lives it changes, not the events it hosts. Growth, learning, and service to community come first.</p>
+      </div>
+      <div class="card">
+        <h3>Whole-Family Impact</h3>
+        <p>We don't just work with teens in isolation — we work with the parents raising them, because a healthy home shapes a healthy community.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="text-center">
+  <div class="container">
+    <h2>Want the fuller story?</h2>
+    <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-top:20px;">
+      <a href="{{ url_for('story') }}" class="btn btn-secondary">Our Story &amp; Timeline</a>
+      <a href="{{ url_for('leadership') }}" class="btn btn-outline">Meet the Leadership</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

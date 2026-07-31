@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}Past Summits — OFMA{% endblock %}
+{% block content %}
+
+<section class="hero" style="padding:60px 0 40px;">
+  <div class="container">
+    <div class="breadcrumb"><a href="{{ url_for('home') }}">Home</a> / <a href="{{ url_for('programs') }}">Programs</a> / Past Summits</div>
+    <span class="eyebrow">The Archive</span>
+    <h1>Past Summits</h1>
+    <p class="lede">Every summit builds on the one before it. Here's a look back at where OFMA has been.</p>
+  </div>
+</section>
+{% include "partials/_curve_divider.html" %}
+
+<section>
+  <div class="container">
+    <div class="grid grid-3">
+      <div class="card">
+        <div class="card-media">Photo — Summit 6.0</div>
+        <span class="tag">2025</span>
+        <h3>OFMA Annual Summit 6.0</h3>
+        <p>"A Journey Called Purpose" — featuring a health outreach, debate &amp; quiz competition, and a parenting and financial literacy workshop.</p>
+      </div>
+      <div class="card">
+        <div class="card-media">Photo — Summit 5.0</div>
+        <span class="tag">2024</span>
+        <h3>OFMA Annual Summit 5.0</h3>
+        <p>[Placeholder — add theme and highlights once details are available.]</p>
+      </div>
+      <div class="card">
+        <div class="card-media">Photo — Earlier Editions</div>
+        <span class="tag">2019 – 2023</span>
+        <h3>OFMA 1.0 – 4.0</h3>
+        <p>[Placeholder — add a short retrospective of the earliest editions here.]</p>
+      </div>
+    </div>
+    <p style="margin-top:30px; font-size:0.88rem; color:var(--ink-soft); text-align:center;">
+      Have photos or notes from an earlier summit? Add them here via the admin panel, or send them to us via the <a href="{{ url_for('contact') }}">contact page</a>.
+    </p>
+  </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% block title %}Sponsor Us — OFMA{% endblock %}
+{% block content %}
+
+<section class="hero" style="padding:60px 0 40px;">
+  <div class="container">
+    <div class="breadcrumb"><a href="{{ url_for('home') }}">Home</a> / Sponsor Us</div>
+    <span class="eyebrow">For Organisations</span>
+    <h1>Sponsor OFMA Annual Summit {{ summit.edition }}</h1>
+    <p class="lede">Every naira invested doesn't just fund a workshop. It funds a parent learning how to listen again, a girl discovering that her faith and her ambition can grow side by side, a family's future and the nation's peace.</p>
+  </div>
+</section>
+{% include "partials/_curve_divider.html" %}
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Giving Levels</span>
+      <h2>How You Can Sponsor</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="card">
+        <span class="tag">From &#8358;300,000</span>
+        <h3>Champion Sponsor</h3>
+        <p>Full sponsorship of one budget section — e.g. Feeding, Speakers &amp; Programme, or Publicity.</p>
+      </div>
+      <div class="card">
+        <span class="tag">&#8358;100,000 – &#8358;299,000</span>
+        <h3>Partner Sponsor</h3>
+        <p>Co-sponsor a section alongside other donors.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Any Amount</span>
+        <h3>Friend of OFMA</h3>
+        <p>Any contribution, of any size, gratefully received.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-alt">
+  <div class="container two-col">
+    <div>
+      <span class="eyebrow">Full Transparency</span>
+      <h2>Where your sponsorship goes</h2>
+      <p>OFMA {{ summit.edition }}'s estimated budget covers venue &amp; logistics, feeding, speaker hospitality, publicity, security, and student competition awards — a full breakdown is available on request, and we're happy to walk through it with you directly.</p>
+      <p style="font-size:0.9rem; color:var(--ink-soft);">Note: figures reflect OFMA's planning estimates for a community event of this scale, and are updated as vendor quotes are confirmed.</p>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0;">Estimated Grand Total</h3>
+      <p style="font-family:var(--font-display); font-size:2.2rem; color:var(--maroon); margin:6px 0;">&#8358;4,207,500</p>
+      <p style="font-size:0.85rem;">Across venue, feeding, speakers, publicity, security, and student awards, with a 10% contingency.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="form-card" style="max-width:640px; margin:0 auto;">
+      <h3 style="margin-top:0;">Start a Sponsorship Conversation</h3>
+      <form method="post" class="form-grid">
+        <div class="form-row-2">
+          <div>
+            <label for="name">Contact Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div>
+            <label for="organisation">Organisation</label>
+            <input type="text" id="organisation" name="organisation">
+          </div>
+        </div>
+        <div class="form-row-2">
+          <div>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div>
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone">
+          </div>
+        </div>
+        <div>
+          <label for="message">Tell us about your interest</label>
+          <textarea id="message" name="message" placeholder="e.g. Which sponsorship level, or which area of the budget interests you?"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="justify-content:center;">Send Inquiry</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

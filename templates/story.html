@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}Our Story — OFMA{% endblock %}
+{% block content %}
+
+<section class="hero" style="padding:60px 0 40px;">
+  <div class="container">
+    <div class="breadcrumb"><a href="{{ url_for('home') }}">Home</a> / <a href="{{ url_for('about') }}">About</a> / Our Story</div>
+    <span class="eyebrow">Since 2019</span>
+    <h1>Our Story</h1>
+    <p class="lede">A small, deliberate investment made every year in the same conviction: that our community's future is only as strong as the guidance its young people receive today.</p>
+  </div>
+</section>
+{% include "partials/_curve_divider.html" %}
+
+<section>
+  <div class="container" style="max-width:780px;">
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-year">2019</div>
+        <h3>OFMA 1.0</h3>
+        <p>OFMA is founded in Okeho, Oyo State, with a mission to empower Muslim women and teens through faith-rooted education and community service.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2024</div>
+        <h3>OFMA Maths Clinic 1.0</h3>
+        <p>OFMA launches its first Maths Clinic, extending its work into academic support for students in the community.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2025</div>
+        <h3>OFMA Maths Clinic 2.0 &amp; Annual Summit 6.0</h3>
+        <p>The Maths Clinic returns for a second, expanded edition. OFMA Annual Summit 6.0 brings together scholars, professionals, and students for a multi-day programme of faith, leadership, and health outreach.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2026</div>
+        <h3>OFMA Annual Summit 7.0</h3>
+        <p>Themed <em>"Uncompromised: Standing Firm When the World Demands Less,"</em> this year's summit holds December 19–20 at FUNATO, Okeho — our deepest and widest edition yet.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-alt text-center">
+  <div class="container">
+    <h2>Every edition builds on the last.</h2>
+    <p class="lede" style="margin:0 auto 20px;">See what's ahead for this year's summit, or look back at where we've been.</p>
+    <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+      <a href="{{ url_for('summit') }}" class="btn btn-primary">Summit {{ summit.edition }}</a>
+      <a href="{{ url_for('past_summits') }}" class="btn btn-outline">Past Summits</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

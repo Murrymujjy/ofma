@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Thank You — OFMA{% endblock %}
+{% block content %}
+
+<section class="hero" style="padding:90px 0;">
+  <div class="container text-center" style="max-width:560px;">
+    {% if status == 'success' %}
+      <span class="eyebrow">Jazakumullahu Khayran</span>
+      <h1>Thank you — your donation was received.</h1>
+      <p class="lede" style="margin:0 auto 24px;">May Allah (SWT) reward your generosity abundantly. A confirmation has been recorded, and your gift is already at work.</p>
+    {% elif status == 'pending_manual_check' %}
+      <span class="eyebrow">Almost done</span>
+      <h1>We're confirming your payment.</h1>
+      <p class="lede" style="margin:0 auto 24px;">Your payment reference has been recorded. If you don't hear from us within 24 hours, please reach out with your reference number.</p>
+    {% else %}
+      <span class="eyebrow">Something needs checking</span>
+      <h1>We couldn't confirm this payment automatically.</h1>
+      <p class="lede" style="margin:0 auto 24px;">If an amount was debited from your account, please contact us with your reference number and we'll confirm manually.</p>
+    {% endif %}
+    <a href="{{ url_for('home') }}" class="btn btn-primary">Back to Home</a>
+  </div>
+</section>
+
+{% endblock %}
