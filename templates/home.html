@@ -90,6 +90,40 @@
   </div>
 </section>
 
+<section>
+  <div class="container">
+    <div class="section-head text-center" style="margin:0 auto 40px;">
+      <span class="eyebrow">Why We Exist</span>
+      <h2>Mission &amp; Vision</h2>
+    </div>
+    <div class="grid grid-2">
+      <div class="card">
+        <span class="tag">Mission</span>
+        <h3>Empowering Women, Enriching Lives</h3>
+        <p>OFMA is dedicated to uniting Okeho Muslim women to inspire personal and collective growth rooted in faith. Through education, advocacy, and service, we empower women to reach their fullest potential, fostering a strong connection to our Deen, unity, and positive community impact.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Vision</span>
+        <h3>Transforming Lives, Building Bridges</h3>
+        <p>OFMA envisions confident, dedicated Muslim women actively shaping a harmonious society in alignment with the Deen — a beacon of unity, understanding, and cooperation, building a legacy of empowerment, education, and sisterhood for generations.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-alt">
+  <div class="container" style="max-width:760px;">
+    <div class="section-head" style="margin-bottom:26px;">
+      <span class="eyebrow">Where It Started</span>
+      <h2>A question that became a mission</h2>
+    </div>
+    <p style="font-size:1.05rem;">It all began as a mere idea in 2020, when the lives of our girls seemed blurry — when indecent relationships were becoming common, teenage pregnancies led many girls to drop out of school, and some of those entrusted with nurturing our girls were grooming them only for marriage.</p>
+    <p style="font-size:1.05rem;">At our very first summit, a secondary school girl asked a question that changed everything for us: what is the relationship between menstrual pain and sex? She asked because she had been told the falsehood that marriage was the only cure for menstrual cramps. Alhamdulillah for creating a space where a question like that could be asked without fear of judgment.</p>
+    <p style="font-size:1.05rem;">That is the gap OFMA exists to close — one honest conversation, one empowered woman, one confident girl at a time.</p>
+    <p style="font-style:italic; color:var(--ink-soft); margin-top:20px;">— Bello Faaidah Olabisi, Convener</p>
+  </div>
+</section>
+
 {% if speakers %}
 <section>
   <div class="container">
@@ -126,6 +160,28 @@
         <p>{{ p['excerpt'] }}</p>
       </a>
       {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% if testimonials %}
+<section class="section-dark">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">In Their Words</span>
+      <h2>What our sisters say</h2>
+    </div>
+    <div class="grid grid-3">
+      {% for t in testimonials %}
+      <div class="card" style="background:rgba(255,255,255,0.06); border-color:rgba(255,255,255,0.15);">
+        <p style="color:rgba(255,255,255,0.9); font-style:italic;">"{{ t['quote'][:220] }}{% if t['quote']|length > 220 %}…{% endif %}"</p>
+        <p style="color:var(--sand); font-size:0.85rem; margin:0;">{{ t['role'] | safe }}</p>
+      </div>
+      {% endfor %}
+    </div>
+    <div style="margin-top:26px;">
+      <a href="{{ url_for('testimonials') }}" class="btn btn-outline-light">Read More Stories →</a>
     </div>
   </div>
 </section>

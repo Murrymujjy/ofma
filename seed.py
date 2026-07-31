@@ -93,37 +93,73 @@ SPEAKERS = [
 
 TESTIMONIALS = [
     dict(
-        name="Parent, OFMA Summit 6.0",
-        role="Parent attendee",
+        name="OFMA Programme Participant",
+        role="Debate Competitor, 2020 &middot; Now at Obafemi Awolowo University",
         quote=(
-            "[Placeholder — replace with a real quote] The parenting session changed how I talk "
-            "to my teenager. I finally understood I was carrying a role that wasn't only mine to carry."
+            "I remember vividly that I was one of the representatives of the debate competition "
+            "organized by OFMA in 2020. Alhamdulillahi, we came second. Sister Mujeebah asked each "
+            "of us the university we were aspiring to get admitted to, and I boldly responded "
+            "\u2018Obafemi Awolowo University\u2019 because that\u2019s my dream school. Alhamdulillahi, "
+            "I am now a bona fide student of Obafemi Awolowo University."
         ),
         sort_order=1,
     ),
     dict(
-        name="Student, Partner School",
-        role="Debate competition participant",
+        name="OFMA Programme Participant",
+        role="Long-time attendee",
         quote=(
-            "[Placeholder — replace with a real quote] OFMA gave me a stage to speak, and a "
-            "community that believed I could stand on it."
+            "I have gained a deeper understanding of the Deen \u2014 how to become a better woman "
+            "before marriage, a better daughter, a caring sister, and above all, a devoted servant "
+            "of my Rabb. I pray that Allah accepts this as an act of \u1e63adaqah jaariyah and continues "
+            "to make it a means of guidance for countless sisters."
         ),
         sort_order=2,
     ),
     dict(
-        name="Community Volunteer",
-        role="OFMA Summit 5.0 & 6.0",
+        name="OFMA Programme Participant",
+        role="Attendee since secondary school",
         quote=(
-            "[Placeholder — replace with a real quote] Every summit feels less like an event and "
-            "more like a family reunion with a purpose."
+            "It's a program that, back then when we were in secondary school, we would be excited "
+            "about whenever OFMA was near. I don't usually forget the lecturers, topics, or even the "
+            "little things around the program \u2014 I have benefited from it in so many ways."
         ),
         sort_order=3,
+    ),
+    dict(
+        name="OFMA Programme Participant",
+        role="Attendee",
+        quote=(
+            "OFMA has shaped me in ways I couldn't have imagined. Every session left me with valuable "
+            "lessons to reflect on. It has taught me to face challenges with courage, resilience, and "
+            "faith rather than fear \u2014 and to never give up, no matter what."
+        ),
+        sort_order=4,
+    ),
+    dict(
+        name="OFMA Programme Participant",
+        role="Attendee",
+        quote=(
+            "OFMA has given me gifts of people \u2014 strangers turned friends and big sisters \u2014 "
+            "alongside immense knowledge and skills. May Allah bless the organisers and donors and "
+            "accept it as an act of Ibadah."
+        ),
+        sort_order=5,
+    ),
+    dict(
+        name="OFMA Programme Participant",
+        role="Attendee",
+        quote=(
+            "Listening to different sisters and speakers made me realise there is so much to learn, "
+            "especially as a young Muslimah growing in this generation. It has shaped the way I think "
+            "and made me more conscious and intentional in my choices."
+        ),
+        sort_order=6,
     ),
 ]
 
 GALLERY = [
     dict(caption="Eid-al-Adha Sisters' Hangout — \"Soft Life: The Right Way\"", category="Community", image_path="/static/img/eid-adha-sisters-hangout.png", sort_order=1),
-    dict(caption="OFMA Maths Clinic Magazine — 1st Edition", category="Maths Clinic", image_path="/static/img/maths-clinic-magazine-cover.jpg", sort_order=2),
+    dict(caption="OFMA Magazine — Maiden Edition", category="Publications", image_path="/static/img/ofma-magazine-cover.png", sort_order=2),
     dict(caption="OFMA Annual Summit 6.0 — Opening Session", category="Summit", image_path=None, sort_order=3),
     dict(caption="Debate & Quiz Competition", category="Summit", image_path=None, sort_order=4),
     dict(caption="Community Outreach", category="Community", image_path=None, sort_order=5),
