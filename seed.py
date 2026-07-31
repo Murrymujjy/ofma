@@ -122,10 +122,11 @@ TESTIMONIALS = [
 ]
 
 GALLERY = [
-    dict(caption="OFMA Annual Summit 6.0 — Opening Session", category="Summit", image_path=None, sort_order=1),
-    dict(caption="OFMA Maths Clinic 2.0", category="Maths Clinic", image_path=None, sort_order=2),
-    dict(caption="Debate & Quiz Competition", category="Summit", image_path=None, sort_order=3),
-    dict(caption="Community Outreach", category="Community", image_path=None, sort_order=4),
+    dict(caption="Eid-al-Adha Sisters' Hangout — \"Soft Life: The Right Way\"", category="Community", image_path="/static/img/eid-adha-sisters-hangout.png", sort_order=1),
+    dict(caption="OFMA Maths Clinic Magazine — 1st Edition", category="Maths Clinic", image_path="/static/img/maths-clinic-magazine-cover.jpg", sort_order=2),
+    dict(caption="OFMA Annual Summit 6.0 — Opening Session", category="Summit", image_path=None, sort_order=3),
+    dict(caption="Debate & Quiz Competition", category="Summit", image_path=None, sort_order=4),
+    dict(caption="Community Outreach", category="Community", image_path=None, sort_order=5),
 ]
 
 BLOG_POSTS = [
