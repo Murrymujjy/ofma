@@ -40,6 +40,7 @@ body {
   background: var(--paper);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 img { max-width: 100%; display: block; }
@@ -178,7 +179,21 @@ p { margin: 0 0 1em; color: var(--ink-soft); }
 .nav-links a.active { color: var(--maroon); }
 
 .nav-cta { display: flex; gap: 10px; align-items: center; }
-.nav-toggle { display: none; }
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 1.5px solid var(--line);
+  border-radius: 4px;
+  width: 42px;
+  height: 38px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  color: var(--ink);
+  position: relative;
+  z-index: 250;
+}
+
+.nav-backdrop { display: none; }
 
 .has-dropdown { position: relative; }
 .dropdown {
@@ -192,6 +207,7 @@ p { margin: 0 0 1em; color: var(--ink-soft); }
   min-width: 220px;
   padding: 8px;
   margin-top: 10px;
+  z-index: 50;
 }
 .has-dropdown:hover .dropdown,
 .has-dropdown:focus-within .dropdown { display: block; }
@@ -203,10 +219,69 @@ p { margin: 0 0 1em; color: var(--ink-soft); }
 }
 .dropdown a:hover { background: var(--paper-warm); }
 .dropdown a::after { display: none; }
+.dropdown-caret { display: none; }
 
 @media (max-width: 900px) {
-  .nav-links, .nav-cta .btn-outline { display: none; }
+  .nav-cta .btn-outline { display: none; }
   .nav-toggle { display: block; }
+
+  .nav-links {
+    display: none;
+    position: fixed;
+    top: 0; right: 0;
+    height: 100vh;
+    width: min(320px, 82vw);
+    background: var(--paper);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 90px 26px 26px;
+    box-shadow: -12px 0 30px -12px rgba(34,31,27,0.35);
+    overflow-y: auto;
+    z-index: 200;
+  }
+  body.menu-open .nav-links { display: flex; }
+  body.menu-open .nav-backdrop {
+    display: block;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(34,31,27,0.45);
+    z-index: 150;
+  }
+  body.menu-open { overflow: hidden; }
+
+  .nav-links li { width: 100%; border-bottom: 1px solid var(--line); }
+  .nav-links > li > a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 2px;
+    font-size: 1rem;
+  }
+  .nav-links a::after { display: none; }
+
+  .has-dropdown .dropdown-caret {
+    display: inline-block;
+    transition: transform 0.2s ease;
+    font-size: 0.75rem;
+    color: var(--ink-soft);
+  }
+  .has-dropdown.open .dropdown-caret { transform: rotate(180deg); }
+
+  .dropdown {
+    display: none;
+    position: static;
+    box-shadow: none;
+    border: none;
+    background: var(--paper-warm);
+    margin: 0 0 8px;
+    padding: 4px 4px 4px 14px;
+  }
+  .has-dropdown.open .dropdown { display: block; }
+  .has-dropdown:hover .dropdown { display: none; }
+  .has-dropdown.open:hover .dropdown { display: block; }
 }
 
 /* ---------- Hero curve/circle signature motif ---------- */

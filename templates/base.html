@@ -20,10 +20,11 @@
     </a>
 
     <nav aria-label="Primary">
+      <div class="nav-backdrop"></div>
       <ul class="nav-links">
         <li><a href="{{ url_for('home') }}" class="{{ 'active' if active=='home' }}">Home</a></li>
         <li class="has-dropdown" tabindex="0">
-          <a href="{{ url_for('about') }}" class="{{ 'active' if active=='about' }}">About</a>
+          <a href="{{ url_for('about') }}" class="{{ 'active' if active=='about' }}">About <span class="dropdown-caret">▾</span></a>
           <div class="dropdown">
             <a href="{{ url_for('about') }}">About Us</a>
             <a href="{{ url_for('story') }}">Our Story</a>
@@ -31,7 +32,7 @@
           </div>
         </li>
         <li class="has-dropdown" tabindex="0">
-          <a href="{{ url_for('programs') }}" class="{{ 'active' if active=='programs' }}">Programs</a>
+          <a href="{{ url_for('programs') }}" class="{{ 'active' if active=='programs' }}">Programs <span class="dropdown-caret">▾</span></a>
           <div class="dropdown">
             <a href="{{ url_for('programs') }}">All Programs</a>
             <a href="{{ url_for('summit') }}">Annual Summit 7.0</a>
@@ -40,14 +41,14 @@
           </div>
         </li>
         <li class="has-dropdown" tabindex="0">
-          <a href="{{ url_for('speakers') }}" class="{{ 'active' if active=='people' }}">People</a>
+          <a href="{{ url_for('speakers') }}" class="{{ 'active' if active=='people' }}">People <span class="dropdown-caret">▾</span></a>
           <div class="dropdown">
             <a href="{{ url_for('speakers') }}">Speakers</a>
             <a href="{{ url_for('testimonials') }}">Testimonials</a>
           </div>
         </li>
         <li class="has-dropdown" tabindex="0">
-          <a href="{{ url_for('gallery') }}" class="{{ 'active' if active=='media' }}">Media</a>
+          <a href="{{ url_for('gallery') }}" class="{{ 'active' if active=='media' }}">Media <span class="dropdown-caret">▾</span></a>
           <div class="dropdown">
             <a href="{{ url_for('gallery') }}">Photo Gallery</a>
             <a href="{{ url_for('videos') }}">Videos</a>
@@ -55,13 +56,19 @@
           </div>
         </li>
         <li><a href="{{ url_for('contact') }}" class="{{ 'active' if active=='contact' }}">Contact</a></li>
+        <li style="border-bottom:none; margin-top:14px;">
+          <a href="{{ url_for('sponsor') }}" class="btn btn-outline" style="width:100%; justify-content:center;">Sponsor</a>
+        </li>
+        <li style="border-bottom:none; margin-top:10px;">
+          <a href="{{ url_for('donate') }}" class="btn btn-primary" style="width:100%; justify-content:center;">Donate</a>
+        </li>
       </ul>
     </nav>
 
     <div class="nav-cta">
       <a href="{{ url_for('sponsor') }}" class="btn btn-outline">Sponsor</a>
       <a href="{{ url_for('donate') }}" class="btn btn-primary">Donate</a>
-      <button class="nav-toggle" aria-label="Open menu" onclick="document.body.classList.toggle('menu-open')">☰</button>
+      <button class="nav-toggle" aria-label="Open menu">☰</button>
     </div>
   </div>
 </header>
