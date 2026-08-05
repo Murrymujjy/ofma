@@ -1,169 +1,164 @@
+<div align="center">
+
 # OFMA Website
 
-A full website for Okeho Female Muslims' Ambassadors (OFMA) — built with Flask
-(Python) and SQLite. Includes 22 public pages, working contact/volunteer/school
-forms, a Paystack-ready donation flow, and an admin panel for managing blog
-posts, speakers, and form submissions without touching code.
+**The official website of the Okeho Female Muslims' Ambassadors (OFMA)** — a faith-based, non-profit organisation empowering Muslim women and teens in Okeho, Oyo State, Nigeria, since 2019.
 
-This has been tested end-to-end in development (every page, every form, the
-full admin login → CRUD flow). What's left before it's fully live is plugging
-in your **real Paystack keys**, **real photos**, and deploying it to a host —
-all covered below.
+[![Python](https://img.shields.io/badge/Python-3.10+-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![Flask](https://img.shields.io/badge/Flask-3.x-000000?logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
+[![SQLite](https://img.shields.io/badge/SQLite-3-003B57?logo=sqlite&logoColor=white)](https://www.sqlite.org/)
+[![License](https://img.shields.io/badge/License-Proprietary-lightgrey)](#license)
+
+[Live Site](#) · [Features](#features) · [Getting Started](#getting-started) · [Admin Panel](#admin-panel) · [Deployment](#deployment)
+
+</div>
+
+<br>
+
+<p align="center">
+  <img src="docs/screenshot-home.png" alt="OFMA website homepage" width="100%">
+</p>
 
 ---
 
-## 1. Running it locally
+## About
 
-**Requirements:** Python 3.10+
+OFMA runs an annual summit, a maths clinic, a university scholarship programme, and a growing publication (*Al-Qawareer* magazine) — all in service of one goal: giving Muslim women and girls in Okeho a space to grow in faith, confidence, and purpose.
+
+This repository is the full source for OFMA's website — a real, working platform, not a template. It's used to publish programme details, showcase real events and team members, collect donations and sponsorships, and manage day-to-day content through a built-in admin panel.
+
+## Features
+
+- 🕌 **22+ pages** — mission & story, leadership, programmes (Annual Summit, Maths Clinic, Scholarship), speakers, testimonials, photo gallery, blog, and more
+- 💳 **Donation flow** — Paystack-integrated checkout with server-side payment verification
+- 📝 **Working forms** — contact, volunteer sign-up, school partnership, and sponsorship inquiries, all saved to the database
+- 🔐 **Admin panel** — password-protected dashboard to manage blog posts, speakers, and view form submissions/donations, with zero code required
+- 📱 **Fully responsive** — tested across mobile, tablet, and desktop breakpoints
+- 🎨 **Custom design system** — built around OFMA's real brand identity (logo, colours, typography), not a generic theme
+
+<p align="center">
+  <img src="docs/screenshot-summit.png" alt="OFMA Annual Summit page" width="100%">
+</p>
+
+## Tech Stack
+
+| Layer | Technology |
+|---|---|
+| Backend | [Flask](https://flask.palletsprojects.com/) (Python) |
+| Database | SQLite |
+| Frontend | Server-rendered Jinja2 templates, hand-written CSS (no framework) |
+| Payments | [Paystack](https://paystack.com/) |
+| Auth | Flask sessions + Werkzeug password hashing |
+
+No build step, no JavaScript framework, no bloat — just a fast, maintainable Flask app.
+
+## Getting Started
+
+### Prerequisites
+- Python 3.10 or later
+
+### Installation
 
 ```bash
-cd ofma_site
+git clone https://github.com/Murrymujjy/ofma.git
+cd ofma/ofma_site
 python3 -m venv venv
 source venv/bin/activate        # Windows: venv\Scripts\activate
 pip install -r requirements.txt
 python app.py
 ```
 
-The first run automatically creates the SQLite database (`instance/ofma.sqlite3`)
-and seeds it with the real content we already have (speaker bios, summit
-details) plus clearly-marked placeholders where photos/testimonials aren't
-ready yet.
+On first run, the app automatically creates and seeds the SQLite database (`instance/ofma.sqlite3`) with real programme content.
 
-Visit **http://127.0.0.1:5000**
+Visit **http://127.0.0.1:5000** to view the site.
 
-**Admin panel:** http://127.0.0.1:5000/admin/login
-Default login: `admin` / `changeme123`
+## Admin Panel
 
-> ⚠️ **Change this password before going live** — see section 4.
+Manage blog posts, speakers, and view form submissions/donations at:
 
----
+```
+http://127.0.0.1:5000/admin/login
+```
 
-## 2. Project structure
+Default credentials (**change immediately** — see [Configuration](#configuration)):
+
+```
+Username: admin
+Password: changeme123
+```
+
+## Configuration
+
+Set these environment variables before deploying to production:
+
+| Variable | Purpose |
+|---|---|
+| `OFMA_SECRET_KEY` | Signs user sessions — use a long random string |
+| `OFMA_ADMIN_PASSWORD` | Overrides the default admin password on first seed |
+| `PAYSTACK_PUBLIC_KEY` | Paystack public key for the donation checkout |
+| `PAYSTACK_SECRET_KEY` | Paystack secret key for server-side payment verification |
+
+```bash
+export OFMA_SECRET_KEY="$(python3 -c 'import secrets; print(secrets.token_hex(32))')"
+export OFMA_ADMIN_PASSWORD="a-much-stronger-password"
+export PAYSTACK_PUBLIC_KEY="pk_live_xxxxxxxx"
+export PAYSTACK_SECRET_KEY="sk_live_xxxxxxxx"
+```
+
+## Project Structure
 
 ```
 ofma_site/
-├── app.py              # Main app: all public page routes, donation flow
-├── admin.py             # Admin blueprint: login, dashboard, blog/speaker CRUD
-├── db.py                 # Database connection + init helper
-├── schema.sql             # SQLite table definitions
-├── seed.py                 # Seeds real speaker/summit content + admin user
+├── app.py                 # Public routes, donation flow, config
+├── admin.py                # Admin blueprint: auth, dashboard, CRUD
+├── db.py                    # Database connection + init helper
+├── schema.sql                 # SQLite table definitions
+├── seed.py                     # Seeds real content + default admin user
 ├── requirements.txt
 ├── static/
-│   ├── css/style.css      # Full design system (brand colors, type, components)
-│   ├── js/main.js          # Mobile nav toggle
-│   └── img/                 # Put real photos here
+│   ├── css/style.css          # Design system — brand colours, type, components
+│   ├── js/main.js              # Mobile nav, dropdown behaviour
+│   └── img/                     # Logo, team photos, event galleries
 ├── templates/
-│   ├── base.html            # Shared header/nav/footer
-│   ├── partials/              # Reusable SVG bits (logo swirl, curve divider)
-│   ├── admin/                  # Admin panel templates
-│   └── *.html                   # One template per public page
+│   ├── base.html               # Shared header, nav, footer
+│   ├── partials/                # Reusable SVG components
+│   ├── admin/                    # Admin panel templates
+│   └── *.html                     # One template per public page
 └── instance/
-    └── ofma.sqlite3               # Database (created on first run)
+    └── ofma.sqlite3                # Database (created on first run)
 ```
 
----
+## Deployment
 
-## 3. Adding real content
+This is a standard Flask app and deploys cleanly to any Python-friendly host.
 
-### Photos
-Every placeholder image is a gray box that says what should go there (e.g.
-"Photo — Summit 6.0"). To replace one:
-1. Drop the image file into `static/img/`
-2. In the relevant template, replace the `<div class="card-media">Photo</div>`
-   block with `<img src="{{ url_for('static', filename='img/your-file.jpg') }}">`
+**Render (recommended)**
+1. New → Web Service → connect this repository
+2. Build command: `pip install -r requirements.txt`
+3. Start command: `gunicorn app:app`
+4. Add the environment variables listed [above](#configuration)
 
-### Speakers
-Go to **Admin → Speakers** to edit bios, topics, and mark a speaker
-"Confirmed" once finalized (the site currently shows the real Al-Istiqamah
-speaker, Chairman, and Keynote roles as "To Be Confirmed" since those are
-still pending your decision between the candidates we discussed).
+> **Note:** SQLite works well at this scale, but most free hosting tiers reset the filesystem on redeploy — meaning blog posts, form submissions, and donation records won't persist across deploys. For production use at scale, migrate to a hosted Postgres database (e.g. [Supabase](https://supabase.com/)).
 
-### Blog / News
-**Admin → Blog Posts → New Post**. Body field accepts basic HTML (wrap
-paragraphs in `<p>` tags).
+## Roadmap
 
-### Testimonials & Gallery
-These currently seed with placeholders. There's no admin UI for these two yet
-(everything else has one) — for now, edit them directly in `seed.py` and
-re-run it, or add rows directly via the `testimonials` / `gallery_images`
-tables. Happy to build a proper admin UI for these next if useful.
+- [ ] Admin UI for testimonials and gallery management (currently edited via `seed.py`)
+- [ ] Email notifications on new form submissions
+- [ ] Migration to hosted Postgres for production durability
 
----
+## Contributing
 
-## 4. Before going live — a checklist
+This is a private organisational project. If you're part of the OFMA team and want to suggest a change, please open an issue or reach out directly — see [Contact](#contact).
 
-- [ ] **Change the admin password.** Either delete `instance/ofma.sqlite3` and
-      re-run with a new password:
-      ```bash
-      export OFMA_ADMIN_PASSWORD="something-much-stronger"
-      python3 -c "from db import init_db; init_db()"
-      python3 seed.py
-      ```
-      or log in and we can add a "change password" admin page next.
-- [ ] **Set a real secret key** (used to sign sessions):
-      ```bash
-      export OFMA_SECRET_KEY="$(python3 -c 'import secrets; print(secrets.token_hex(32))')"
-      ```
-- [ ] **Add your Paystack keys** (see section 5).
-- [ ] **Replace placeholder photos, testimonials, and gallery images.**
-- [ ] Have the **Privacy Policy** page reviewed by someone qualified — it's
-      currently placeholder text, flagged as such on the page itself.
+## Contact
 
----
+**Okeho Female Muslims' Ambassadors (OFMA)**
+📍 Opp. Bayande Ayanlowo House, Ariwoola St., Isia, Okeho, Oyo State
+📞 0813 797 3600
+📧 ofmaokeho@gmail.com
+🌐 [Facebook](https://www.facebook.com/share/1Hhpgs1sFC/) · [Instagram](https://www.instagram.com/ofma_okeho) · [YouTube](https://youtube.com/@ofmasummit6.0)
 
-## 5. Connecting real donations (Paystack)
+## License
 
-1. Create a Paystack account at paystack.com and grab your **public** and
-   **secret** keys from the dashboard (use test keys first).
-2. Set them as environment variables wherever you deploy:
-   ```bash
-   export PAYSTACK_PUBLIC_KEY="pk_live_xxxxxxxx"
-   export PAYSTACK_SECRET_KEY="sk_live_xxxxxxxx"
-   ```
-3. That's it — `/donate` already builds the checkout flow around these keys.
-   Test with a small amount using Paystack's test cards before switching to
-   live keys.
-
-The donation flow: visitor fills the form → we record a pending donation →
-Paystack's inline checkout opens → on success, we verify the transaction
-server-side (so a browser can't fake a successful payment) → donation is
-marked `success` in the database → visible under **Admin → Donations**.
-
----
-
-## 6. Deployment
-
-This is a standard Flask app, so it deploys to any Python host. Two easy
-options:
-
-**Render.com (recommended, free tier available)**
-1. Push this folder to a GitHub repo.
-2. On Render: New → Web Service → connect the repo.
-3. Build command: `pip install -r requirements.txt`
-4. Start command: `gunicorn app:app` (add `gunicorn` to `requirements.txt` first)
-5. Add your environment variables (`PAYSTACK_PUBLIC_KEY`, etc.) in Render's dashboard.
-
-**Railway.app** — similar flow, also has a generous free tier and is popular
-for small Nigerian projects.
-
-> Note: SQLite works fine at this scale, but most free hosts wipe the
-> filesystem on redeploy. If that becomes an issue once you're getting regular
-> donations/submissions, we should migrate to a hosted Postgres database
-> (e.g. via Supabase, also free-tier friendly) — happy to do that when you're
-> ready to go live for real.
-
----
-
-## 7. What's built vs. what's next
-
-**Done and tested:**
-- All 22 pages, responsive, branded to match your letterhead
-- Contact, volunteer, sponsor, and school-registration forms (save to database)
-- Full admin panel: login, dashboard, submissions inbox, blog CRUD, speaker editor
-- Donation flow wired to Paystack (needs your real keys to go fully live)
-
-**Natural next steps, whenever you're ready:**
-- Admin UI for testimonials and gallery (currently edit via `seed.py`)
-- Email notifications when a form is submitted (currently only visible in admin)
-- Real photos throughout
-- Production deployment + Postgres migration if traffic grows
+© Okeho Female Muslims' Ambassadors (OFMA). All rights reserved.
+This codebase is maintained for OFMA's exclusive use; see the maintenance agreement for terms governing ongoing support.
