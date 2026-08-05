@@ -109,6 +109,11 @@ def maths_clinic():
     return render_template("maths_clinic.html", active="programs")
 
 
+@app.route("/programs/scholarship")
+def scholarship():
+    return render_template("scholarship.html", active="programs")
+
+
 # =======================================================================
 # PEOPLE
 # =======================================================================

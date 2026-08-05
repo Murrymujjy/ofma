@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block title %}OFMA Scholarship — OFMA{% endblock %}
+{% block content %}
+
+<section class="hero" style="padding:60px 0 40px;">
+  <div class="container">
+    <div class="breadcrumb"><a href="{{ url_for('home') }}">Home</a> / <a href="{{ url_for('programs') }}">Programs</a> / Scholarship</div>
+    <span class="eyebrow">New in 2026</span>
+    <h1>OFMA Scholarship Programme</h1>
+    <p class="lede">This year, OFMA began sponsoring the full university journey — from JAMB to graduation — for two young women from Okeho. We're looking for partners to help us do this for more.</p>
+    <a href="{{ url_for('sponsor') }}" class="btn btn-primary" style="margin-top:10px;">Sponsor a Scholar</a>
+  </div>
+</section>
+{% include "partials/_curve_divider.html" %}
+
+<section>
+  <div class="container two-col">
+    <div>
+      <span class="eyebrow">What We Cover</span>
+      <h2>From JAMB to graduation day</h2>
+      <p>For our first two scholarship students, OFMA is covering the full cost of getting — and staying — in university:</p>
+      <ul style="color:var(--ink-soft); line-height:1.9; padding-left:20px;">
+        <li>JAMB registration</li>
+        <li>Post-UTME coaching &amp; registration</li>
+        <li>Accommodation throughout their studies</li>
+        <li>Full tuition fees, year on year, until graduation</li>
+      </ul>
+      <p>This isn't a one-time gift — it's a multi-year commitment to two young women's futures, and we're covering it because we believe it's worth doing properly.</p>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0;">Post-UTME Coaching Eligibility</h3>
+      <p style="font-size:0.92rem;">Our scholarship pipeline starts with a sponsored Post-UTME coaching programme, open to:</p>
+      <ul style="font-size:0.92rem; color:var(--ink-soft); line-height:1.8; padding-left:20px;">
+        <li>Female Muslim indigenes of Okeho</li>
+        <li>UTME score of 200 and above</li>
+        <li>Seeking admission into a recognised tertiary institution</li>
+      </ul>
+      <p style="font-size:0.92rem; margin-bottom:0;"><strong>Benefits:</strong> Sponsored Post-UTME class at Extramural, Agbowo, Ibadan, with free accommodation throughout. The overall best-performing candidate receives a full university scholarship.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section-dark text-center">
+  <div class="container">
+    <span class="eyebrow">Why We Need You</span>
+    <h2>Two students today. More, with your help.</h2>
+    <p class="lede" style="margin:0 auto 24px;">A full university sponsorship is a real, multi-year cost — tuition, accommodation, and living expenses add up over four or more years. We're actively looking for individuals and organisations willing to partner with us so this doesn't stay limited to two students.</p>
+    <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+      <a href="{{ url_for('sponsor') }}" class="btn btn-primary">Sponsor a Scholar</a>
+      <a href="{{ url_for('donate') }}" class="btn btn-outline-light">Donate Towards This</a>
+    </div>
+  </div>
+</section>
+
+<section class="text-center">
+  <div class="container">
+    <h2>Know someone who qualifies?</h2>
+    <p class="lede" style="margin:0 auto 20px;">Reach out to us directly to learn about the next Post-UTME coaching intake.</p>
+    <a href="{{ url_for('contact') }}" class="btn btn-outline">Contact Us</a>
+  </div>
+</section>
+
+{% endblock %}

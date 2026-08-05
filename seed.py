@@ -158,11 +158,15 @@ TESTIMONIALS = [
 ]
 
 GALLERY = [
-    dict(caption="Eid-al-Adha Sisters' Hangout — \"Soft Life: The Right Way\"", category="Community", image_path="/static/img/eid-adha-sisters-hangout.png", sort_order=1),
-    dict(caption="OFMA Magazine — Maiden Edition", category="Publications", image_path="/static/img/ofma-magazine-cover.png", sort_order=2),
-    dict(caption="OFMA Annual Summit 6.0 — Opening Session", category="Summit", image_path=None, sort_order=3),
-    dict(caption="Debate & Quiz Competition", category="Summit", image_path=None, sort_order=4),
-    dict(caption="Community Outreach", category="Community", image_path=None, sort_order=5),
+    dict(caption="Eid-al-Adha Sisters' Hangout 2026 — Group Photo", category="Community", image_path="/static/img/gallery/eid-hangout-2026-group.jpg", sort_order=1),
+    dict(caption="OFMA Summit 6.0 — Certificate of Participation Presentation", category="Summit", image_path="/static/img/gallery/summit6-certificate-1.jpg", sort_order=2),
+    dict(caption="OFMA Summit 6.0 — Debate & Quiz Winners", category="Summit", image_path="/static/img/gallery/summit6-certificate-2.jpg", sort_order=3),
+    dict(caption="OFMA Summit 6.0 — Group Photo, Okeho Central Mosque", category="Summit", image_path="/static/img/gallery/summit6-group-mosque.jpg", sort_order=4),
+    dict(caption="OFMA Magazine Launch — Al-Qawareer, Maiden Edition", category="Publications", image_path="/static/img/gallery/summit6-magazine-launch.jpg", sort_order=5),
+    dict(caption="OFMA Maths Clinic — Students & Volunteers", category="Maths Clinic", image_path="/static/img/gallery/mathsclinic-group-1.jpg", sort_order=6),
+    dict(caption="OFMA Maths Clinic — Guests & Dignitaries", category="Maths Clinic", image_path="/static/img/gallery/mathsclinic-dignitaries.jpg", sort_order=7),
+    dict(caption="OFMA Maths Clinic — Closing Group Photo", category="Maths Clinic", image_path="/static/img/gallery/mathsclinic-group-2.jpg", sort_order=8),
+    dict(caption="OFMA Magazine — Maiden Edition Cover", category="Publications", image_path="/static/img/ofma-magazine-cover.png", sort_order=9),
 ]
 
 BLOG_POSTS = [

@@ -13,30 +13,54 @@
 {% include "partials/_curve_divider.html" %}
 
 <section>
-  <div class="container">
-    <div class="grid grid-3">
-      <div class="card">
-        <div class="card-media">Photo — Summit 6.0</div>
-        <span class="tag">2025</span>
-        <h3>OFMA Annual Summit 6.0</h3>
-        <p>"A Journey Called Purpose" — featuring a health outreach, debate &amp; quiz competition, and a parenting and financial literacy workshop.</p>
+  <div class="container" style="max-width:820px;">
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-year">2025</div>
+        <h3>OFMA Annual Summit 6.0 — "A Journey Called Purpose"</h3>
+        <p>Held 20th–21st December 2025 at Okeho Central Mosque, featuring Imam AbdurRahman Ahmad, Prof. Kareem, Sis Toyyibah Ibraheem, and Mrs. Sideeqoh, alongside a debate competition and panel sessions.</p>
       </div>
-      <div class="card">
-        <div class="card-media">Photo — Summit 5.0</div>
-        <span class="tag">2024</span>
-        <h3>OFMA Annual Summit 5.0</h3>
-        <p>[Placeholder — add theme and highlights once details are available.]</p>
+
+      <div class="timeline-item">
+        <div class="timeline-year">2024</div>
+        <h3>OFMA Annual Summit 5.0 — "Tides &amp; Strides"</h3>
+        <p>Held 21st–22nd December 2024 in Okeho. This edition also saw the launch of the maiden <em>Al-Qawareer</em> Magazine at Okeho Central Mosque on 22nd December 2024.</p>
       </div>
-      <div class="card">
-        <div class="card-media">Photo — Earlier Editions</div>
-        <span class="tag">2019 – 2023</span>
-        <h3>OFMA 1.0 – 4.0</h3>
-        <p>[Placeholder — add a short retrospective of the earliest editions here.]</p>
+
+      <div class="timeline-item">
+        <div class="timeline-year">2023</div>
+        <h3>OFMA Annual Summit 4.0 — "Sisterhood Synergy: Balancing Excellence in Every Aspect"</h3>
+        <p>Held 16th–17th December 2023 at Okeho Central Mosque, Gbonje Market. A two-day programme split by audience — Day 1 for women and teens (parenting, vocational training, modesty, academic focus), Day 2 open to all (Islamic finance, gratitude &amp; tawakkul) — with Alh. Soliu Shittu as Keynote Speaker and Alhaji Sheriffdeen Ahmed as Chairman of the Day.</p>
       </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">2022</div>
+        <h3>OFMA Sisters' Summit 3.0 — "Our Purpose: Between Living &amp; Existence"</h3>
+        <p>Held 10th–11th December 2022 at Okeho Central Mosque, Gbonje Market, Okeho, Oyo State — featuring seasoned lecturers, networking, halal fun and games, and personal development sessions.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">2021</div>
+        <h3>OFMA Sisters' Summit 2.0 — "Towards Enlivening Our Purpose"</h3>
+        <p>Held 18th–19th December 2021 at Okeho Central Masjid, Gbonje Market, Kajola Local Government, Oyo State. Speakers included Saheedat Tobiloba Adetayo (Executive Director, Pad A Queen Initiative).</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">2020</div>
+        <h3>OFMA 1.0 — "Within the Circumference: Career, Relationship &amp; Worship"</h3>
+        <p>OFMA's very first public lecture, held 19th December 2020 at Okeho Central Mosque — featuring Dr. Ganiyah Tijani-Adenle, Sis. Ruqayyah Thaabit, Mrs. Lateefah Abifarin, and Sis. Kafeelah Busari.</p>
+      </div>
+
     </div>
-    <p style="margin-top:30px; font-size:0.88rem; color:var(--ink-soft); text-align:center;">
-      Have photos or notes from an earlier summit? Add them here via the admin panel, or send them to us via the <a href="{{ url_for('contact') }}">contact page</a>.
-    </p>
+  </div>
+</section>
+
+<section class="section-alt text-center">
+  <div class="container">
+    <h2>The story continues in 2026.</h2>
+    <p class="lede" style="margin:0 auto 20px;">See what's ahead for this year's summit.</p>
+    <a href="{{ url_for('summit') }}" class="btn btn-primary">Summit {{ summit.edition }}</a>
   </div>
 </section>
 
