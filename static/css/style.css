@@ -138,7 +138,7 @@ p { margin: 0 0 1em; color: var(--ink-soft); }
   font-size: 1.4rem;
   color: var(--green-deep);
 }
-.brand .swirl { width: 34px; height: 34px; }
+.brand .swirl { width: 38px; height: auto; object-fit: contain; }
 .brand small {
   display: block;
   font-family: var(--font-body);
@@ -194,6 +194,7 @@ p { margin: 0 0 1em; color: var(--ink-soft); }
 }
 
 .nav-backdrop { display: none; }
+.mobile-only-cta { display: none; }
 
 .has-dropdown { position: relative; }
 .dropdown {
@@ -253,6 +254,7 @@ p { margin: 0 0 1em; color: var(--ink-soft); }
   body.menu-open { overflow: hidden; }
 
   .nav-links li { width: 100%; border-bottom: 1px solid var(--line); }
+  .mobile-only-cta { display: block; border-bottom: none !important; }
   .nav-links > li > a {
     display: flex;
     align-items: center;

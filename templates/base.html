@@ -15,7 +15,7 @@
 <header class="site-header">
   <div class="container nav-row">
     <a href="{{ url_for('home') }}" class="brand">
-      {% include "partials/_swirl_icon.html" %}
+      <img src="{{ url_for('static', filename='img/ofma-logo-mark.png') }}" class="swirl" alt="OFMA logo">
       <span>OFMA<br><small>Okeho Female Muslims' Ambassadors</small></span>
     </a>
 
@@ -56,10 +56,10 @@
           </div>
         </li>
         <li><a href="{{ url_for('contact') }}" class="{{ 'active' if active=='contact' }}">Contact</a></li>
-        <li style="border-bottom:none; margin-top:14px;">
+        <li class="mobile-only-cta" style="border-bottom:none; margin-top:14px;">
           <a href="{{ url_for('sponsor') }}" class="btn btn-outline" style="width:100%; justify-content:center;">Sponsor</a>
         </li>
-        <li style="border-bottom:none; margin-top:10px;">
+        <li class="mobile-only-cta" style="border-bottom:none; margin-top:10px;">
           <a href="{{ url_for('donate') }}" class="btn btn-primary" style="width:100%; justify-content:center;">Donate</a>
         </li>
       </ul>
@@ -92,7 +92,7 @@
     <div class="footer-grid">
       <div>
         <a href="{{ url_for('home') }}" class="brand" style="color:white; margin-bottom:14px; display:flex;">
-          {% include "partials/_swirl_icon.html" %}
+          <img src="{{ url_for('static', filename='img/ofma-logo-mark.png') }}" class="swirl" alt="OFMA logo">
           <span>OFMA</span>
         </a>
         <p style="color:rgba(255,255,255,0.65); font-size:0.9rem; max-width: 320px;">
